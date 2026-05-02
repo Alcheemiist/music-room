@@ -1,0 +1,24 @@
+module github.com/Alcheemiist/MusicRoom
+
+go 1.16
+
+require (
+	github.com/Alcheemiist/brainy v0.0.11
+	github.com/bojanz/httpx v0.0.0-20201111190843-d1cf01c49b2e
+	github.com/bxcodec/faker/v3 v3.6.0
+	github.com/go-playground/validator/v10 v10.9.0
+	github.com/golang/mock v1.6.0 // indirect
+	github.com/gorilla/handlers v1.5.1
+	github.com/gorilla/mux v1.8.0
+	github.com/mitchellh/mapstructure v1.4.1
+	github.com/senseyeio/duration v0.0.0-20180430131211-7c2a214ada46
+	github.com/stretchr/testify v1.7.0
+	github.com/twmb/murmur3 v1.1.5 // indirect
+	github.com/uber-go/tally v3.4.1+incompatible // indirect
+	go.temporal.io/sdk v1.8.0
+	go.uber.org/atomic v1.8.0 // indirect
+	golang.org/x/net v0.0.0-20210614182718-04defd469f4e // indirect
+	golang.org/x/time v0.0.0-20210611083556-38a9dc6acbc6 // indirect
+	google.golang.org/genproto v0.0.0-20210701191553-46259e63a0a9 // indirect
+	google.golang.org/grpc v1.39.0 // indirect
+)

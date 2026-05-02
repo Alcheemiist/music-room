@@ -1,0 +1,32 @@
+{
+    "extends": "expo/tsconfig.base",
+    "compilerOptions": {
+        "composite": true,
+        "strict": true,
+        "outDir": "dist",
+        "noEmit": false,
+        "emitDeclarationOnly": true,
+        "declarationMap": true
+    },
+    "exclude": ["node_modules", "dist"],
+    "include": [
+        "./jest.setup.tsx",
+        "./tests",
+        "./constants",
+        "./machines",
+        "./hooks",
+        "./services",
+        "./contexts",
+        "./navigation",
+        "./components",
+        "./screens",
+        "./App.tsx",
+        "./types.tsx",
+        "./global.d.ts",
+        "./__tests__",
+        "./tests",
+        "./e2e",
+        "./playwright.config.ts",
+        "./__mocks__"
+    ]
+}

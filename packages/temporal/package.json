@@ -1,0 +1,24 @@
+{
+    "license": "MIT",
+    "name": "@musicroom/temporal",
+    "version": "0.0.1",
+    "dependencies": {},
+    "volta": {
+        "node": "16.8.0",
+        "yarn": "1.22.10"
+    },
+    "scripts": {
+        "dev": "nodemon --signal SIGTERM --ext go --exec env-cmd go run api/*.go",
+        "worker": "nodemon --signal SIGTERM --ext go --exec env-cmd go run worker/*.go",
+        "api:build": "go build -o bin_api api/*",
+        "api:launch": "./bin_api",
+        "worker:build": "go build -o bin_worker worker/*",
+        "worker:launch": "./bin_worker",
+        "temporal": "cd docker-compose && docker-compose up -d",
+        "test": "go test ./..."
+    },
+    "devDependencies": {
+        "env-cmd": "^10.1.0",
+        "nodemon": "^2.0.7"
+    }
+}

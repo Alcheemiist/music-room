@@ -1,0 +1,17 @@
+@layout('emails/layouts/main')
+
+@section('body')
+    <mj-text font-size="24px" color="#212121" font-family="helvetica">
+        Welcome {{nickname}} !
+    </mj-text>
+
+    <mj-text font-size="24px" color="#212121" font-family="helvetica">
+        Please verify your email using the following code:
+    </mj-text>
+
+    <mj-text align="center" font-family="helvetica" font-size="24px" font-weight="bold" line-height="22px" padding-bottom="5px" padding-top="15px">
+        <span data-testid="token">
+            {{token}}
+        </span>
+    </mj-text>
+@end

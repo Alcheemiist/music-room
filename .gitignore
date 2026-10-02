@@ -120,3 +120,5 @@ dist
 
 # Local Cursor / Claude settings
 .claude/
+
+.DS_Store

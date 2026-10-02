@@ -1,6 +1,31 @@
 # MusicRoom
 
-Cross-platform iOS, Android, and Web application for collaborative music listening. Built with React Native (Expo), AdonisJS, and Temporal in a monorepo.
+Cross-platform iOS, Android and web app for listening to music together in real time: rooms where everyone suggests and votes on the next track, and playlists edited live by several people at once.
+
+**Stack:** TypeScript monorepo · React Native (Expo) · XState · React Query · AdonisJS · PostgreSQL · Redis · Socket.IO · Temporal (Go) · Zod · Playwright
+
+![Collaborative playlist editing](docs/mpe-demo.gif)
+
+## Architecture
+
+```mermaid
+flowchart LR
+  C[Client<br/>React Native + Expo<br/>iOS · Android · Web] -- REST --> S[AdonisJS API]
+  C <-- Socket.IO --> S
+  S --> P[(PostgreSQL)]
+  S <--> R[(Redis<br/>cache + pub/sub)]
+  S -- start / signal --> T[Temporal workflows<br/>Go]
+  T -- activities --> S
+  X[packages/types<br/>shared Zod schemas] -.-> C
+  X -.-> S
+```
+
+- **Long-lived room state lives in Temporal workflows**, so a room keeps its queue, votes and playback state across restarts and is updated by signals from the API.
+- **Client logic is modelled as XState state machines**, which are also used for model-based tests (`@xstate/test`).
+- **One Zod schema package** validates payloads on both the client and the server.
+- **Redis pub/sub behind Socket.IO** lets several API instances broadcast the same room events. Artillery load tests live in `packages/stress`.
+
+See [technical stack](docs/technical-stack.md) and [setup](docs/setup.md) for details.
 
 ## Features
 
